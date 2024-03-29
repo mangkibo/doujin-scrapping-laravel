@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  nhentai:
+    build:
+      dockerfile: Dockerfile
+    container_name: nhentai_ctr
+    image: nhentai_img
+    platform: 'linux/amd64'
+    volumes:
+      - ./:/var/www/html/app:delegated
+    networks:
+      - nhentai_net
+networks:
+    nhentai_net:
+      driver: bridge
